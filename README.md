@@ -1,2 +1,6 @@
-# my docker compose file 
-- development for me 
+# my docker compose file
+- development for me
+
+| Service | link                          |
+| ------- | ----------------------------- |
+| pgadmin | [link](http://localhost:8086) |
