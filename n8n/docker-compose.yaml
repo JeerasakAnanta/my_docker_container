@@ -1,18 +1,16 @@
 services:
   n8n:
-    image: n8nio/n8n
-    container_name: n8n_container
+    image: n8nio/n8n:latest
+    container_name: n8n
     restart: always
     ports:
       - "5678:5678"
     environment:
-      GENERIC_TIMEZONE: Asia/Bangkok
-      N8N_BASIC_AUTH_ACTIVE: "False"
-      N8N_BASIC_AUTH_USER: ${ADMIN_USER}
-      N8N_BASIC_AUTH_PASSWORD: ${PASSWORD}
-      N8N_HOST: "0.0.0.0"
-      N8N_PORT: 5678
-      WEBHOOK_TUNNEL_URL: http://localhost:5678
-    # volumes:
-    #   - ./n8n_data:/home/node/.n8n
-    
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - WEBHOOK_URL=http://localhost:5678
+      - TZ=Asia/Bangkok
+    volumes:
+      - n8ndata:/home/node/.n8n
+volumes:
+  n8ndata:
