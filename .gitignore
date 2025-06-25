@@ -5,3 +5,4 @@ qdrant_vecterDB/qdrant_data/
 
 # N8N
 n8n/.env
+traefik/letsencrypt
