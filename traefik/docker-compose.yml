@@ -1,0 +1,38 @@
+services:
+  traefik:
+    image: traefik:v2.11
+    container_name: traefik
+    restart: always
+    ports:
+      - "80:80"        # HTTP
+      - "443:443"      # HTTPS
+      - "8080:8080"    # Dashboard
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=true" # เปิด dashboard ที่ :8080 (ใช้แค่ตอน dev)
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge=true"
+      - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.myresolver.acme.email=your@email.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "./letsencrypt:/letsencrypt"
+
+  whoami:
+    image: containous/whoami
+    container_name: whoami
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`example.localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=web"
+      - "traefik.http.routers.whoami.service=whoami-service"
+      - "traefik.http.services.whoami-service.loadbalancer.server.port=80"
+
+networks:
+  default:
+    name: traefik-net
+
