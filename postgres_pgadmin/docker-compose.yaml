@@ -12,7 +12,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./data:/var/lib/postgresql/data
+      - ./postgresql_data:/var/lib/postgresql/data
 
   pgadmin:
     container_name: pgadmin_container
@@ -24,7 +24,6 @@ services:
     networks:
       - pgnetwork
     ports:
-      - "8086:80" 
-
+      - "8085:80"
 networks:
   pgnetwork:
