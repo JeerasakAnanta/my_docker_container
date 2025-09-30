@@ -22,3 +22,4 @@ Dockerfile*
 **/.dockerignore
 **/.DS_Store
 **/node_modules/
+uptime/uptime-kuma-data/kuma.db
