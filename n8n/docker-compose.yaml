@@ -7,9 +7,9 @@ services:
       - "5678:5678"
     environment:
       - GENERIC_TIMEZONE=Asia/Bangkok
-      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_ACTIVE=false
       - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
       - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD}
       - WEBHOOK_URL=https://localhost
-    volumes:
-      - ./n8n_data:/home/node/.n8n
+    # volumes:
+    #   - ./n8n_data:/home/node/.n8n
