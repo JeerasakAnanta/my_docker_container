@@ -1,4 +1,4 @@
-# my_docker_container
+# My Docker Container
 
 This repository contains several docker-compose setups used for local development. The table below lists each service, the compose file location, a suggested/default port (these can be changed in the compose files) and a quick local URL you can try.
 
