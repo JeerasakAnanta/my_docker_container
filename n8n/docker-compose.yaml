@@ -7,9 +7,19 @@ services:
       - "5678:5678"
     environment:
       - GENERIC_TIMEZONE=Asia/Bangkok
-      - N8N_BASIC_AUTH_ACTIVE=false
-      - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
-      - N8N_BASIC_AUTH_PASSWORD=${N8N_BASIC_AUTH_PASSWORD}
-      - WEBHOOK_URL=https://localhost
-    # volumes:
-    #   - ./n8n_data:/home/node/.n8n
+      - N8N_HOST=localhost
+      - N8N_PORT=5678 
+      - N8N_PROTOCOL=http
+      # CRITICAL: Change this to your actual public domain if using Cloudflare/Ngrok
+      # Example: https://n8n.yourdomain.com
+      - WEBHOOK_URL=http://localhost:5678/
+      
+      # Security & Auth (n8n v1+ uses built-in user management by default)
+      - N8N_SECURE_COOKIE=false 
+    
+    # CRITICAL: Unleash the volume or you will lose all workflows on restart
+    volumes:
+      - ./n8n_data:/home/node/.n8n
+    
+    # Fixes permission issues on Linux/Mac
+    user: "1000:1000"
