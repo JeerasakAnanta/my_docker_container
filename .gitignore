@@ -29,3 +29,6 @@ Dockerfile*
 uptime/uptime-kuma-data/kuma.db
 uptime/uptime-kuma-data/
 
+n8n/n8n_data/config
+n8n/n8n_data/database.sqlite
+n8n/n8n_data/nodes/package.json
