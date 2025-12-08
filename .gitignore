@@ -1,3 +1,9 @@
+# ================================
+# Ignore sensitive files and folders 
+# created by jeerask 
+# ================================
+
+
 # environment variables 
 postgres_pgadmin/.env
 qdrant_vecterDB/qdrant_data/
@@ -32,3 +38,6 @@ uptime/uptime-kuma-data/
 n8n/n8n_data/config
 n8n/n8n_data/database.sqlite
 n8n/n8n_data/nodes/package.json
+airflow/dags/hello_world.py
+airflow/dags/__pycache__/hello_world.cpython-312.pyc
+n8n/n8n_data/crash.journal
