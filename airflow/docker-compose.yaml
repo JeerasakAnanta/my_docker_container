@@ -4,12 +4,12 @@ x-airflow-common:
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: LocalExecutor
-    # UPDATED CONNECTION STRING BELOW:
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://jeerasak:ghost2020@postgres/airflow
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKEND: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'true'
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -25,18 +25,18 @@ services:
   postgres:
     image: postgres:13
     environment:
-      # UPDATED CREDENTIALS BELOW:
       POSTGRES_USER: jeerasak
       POSTGRES_PASSWORD: ghost2020
       POSTGRES_DB: airflow
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
     healthcheck:
-      # Updated healthcheck user to match new username
       test: ["CMD", "pg_isready", "-U", "jeerasak"]
       interval: 5s
       retries: 5
     restart: always
+    ports:
+      - "5432:5432"
 
   airflow-webserver:
     <<: *airflow-common
