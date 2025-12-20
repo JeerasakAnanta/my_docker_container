@@ -1,0 +1,80 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+
+- Infrastructure:
+    - Portainer:
+        icon: portainer
+        href: http://localhost:9000
+        description: Docker Management
+        container: portainer_container
+
+    - Coolify:
+        icon: coolify
+        href: http://localhost:3000
+        description: PaaS & DevOps Platform
+
+    - MinIO:
+        icon: minio
+        href: http://localhost:9001
+        description: Object Storage
+
+    - Traefik:
+        icon: traefik
+        href: http://localhost:8080
+        description: Reverse Proxy & Load Balancer 
+
+- Automation:
+    - n8n:
+        icon: n8n
+        href: https://n8n.jeerasakananta.dev
+        
+        description: DevOps Platform 
+    - Node-RED:
+        icon: node-red
+        href: http://localhost:1880
+        description: Flow-based development tool
+
+- AI & Low-Code:
+    - webui:
+        icon: webui
+        href: http://localhost:8090
+        description: Stable Diffusion WebUI
+
+- Monitoring:
+    - Grafana:
+        icon: grafana
+        href: http://localhost:3001
+        description: Monitoring
+
+    - Netdata:
+        icon: netdata
+        href: http://localhost:19999
+        description: Real-time performance monitoring
+        
+    - Uptime Kuma:
+        icon: uptime-kuma
+        href: http://localhost:3002
+        description: Status Page & Monitoring
+
+
+- Group A:
+    - Sonarr:
+        icon: sonarr.png
+        href: http://sonarr.host/
+        description: Series management
+        widget:
+          type: sonarr
+          url: http://sonarr.host
+          key: apikeyapikeyapikeyapikeyapikey
+
+- Group B:
+    - Radarr:
+        icon: radarr.png
+        href: http://radarr.host/
+        description: Movie management
+        widget:
+          type: radarr
+          url: http://radarr.host
+          key: apikeyapikeyapikeyapikeyapikey

@@ -1,0 +1,20 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/settings/
+
+# General Settings 
+title: My Homepage 
+description: A description of my awesome homepage
+
+language: en
+timezone: Asia/Bangkok
+
+# API Keys for
+
+startUrl: https://custom.url
+background: https://images.unsplash.com/photo-1502790671504-542ad42d5189?auto=format&fit=crop&w=2560&q=80
+
+
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: 715376b93d227c61f01af6db76a83ec2
