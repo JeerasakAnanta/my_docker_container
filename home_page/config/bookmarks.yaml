@@ -1,0 +1,18 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/bookmarks
+
+- Developer:
+    - Github:
+        - abbr: GH
+          href: https://github.com/JeerasakAnanta 
+
+- Personal:
+    - webprofile:
+        - abbr: WP
+          href: https://jeerasakananta.dev/
+          
+- production:
+    - Docker:
+        - abbr: DC
+          href: http://localhost:3030/docker
