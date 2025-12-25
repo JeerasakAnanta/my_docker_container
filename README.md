@@ -2,17 +2,23 @@
 
 This repository contains several docker-compose setups used for local development. The table below lists each service, the compose file location, a suggested/default port (these can be changed in the compose files) and a quick local URL you can try.
 
-| Service                             | compose file path                      | suggested port(s)                     | Local URL (suggested)             |
-| ----------------------------------- | -------------------------------------- | ------------------------------------- | --------------------------------- |
-| Airflow (web UI)                    | `airflow/docker-compose.yaml`          | 8080 (webserver)                      | <http://localhost:8080>             |
-| CouchDB                             | `CouchDB/docker-compose.yaml`          | 5984                                  | <http://localhost:5984>             |
-| Jenkins                             | `jenkins/docker-compose.yml`           | 8080                                  | <http://localhost:8080>             |
-| n8n                                 | `n8n/docker-compose.yaml`              | 5678                                  | <http://localhost:5678>             |
-| Ollama (model server)               | `ollama/docker-compose.yaml`           | 11434                                 | <http://localhost:11434>            |
-| Postgres + pgAdmin                  | `postgres_pgadmin/docker-compose.yaml` | Postgres: 5432, pgAdmin: 8086         | <http://localhost:8086>             |
-| Qdrant (vector DB)                  | `qdrant_vecterDB/docker-compose.yaml`  | 6333                                  | <http://localhost:6333>             |
-| Traefik (reverse proxy / dashboard) | `traefik/docker-compose.yml`           | Dashboard: 8080; HTTP: 80; HTTPS: 443 | <http://localhost:8080> (dashboard) |
-| Traefik proxy (alternate)           | `traefik_proxy/docker-compose.yaml`    | depends on config                     | see compose file                  |
+| Service                             | compose file path                            | suggested port(s)                     | Local URL (suggested)               |
+| ----------------------------------- | -------------------------------------------- | ------------------------------------- | ----------------------------------- |
+| Airflow (web UI)                    | `airflow/docker-compose.yaml`                | 8080 (webserver), 5432 (postgres)     | <http://localhost:8080>             |
+| CouchDB                             | `CouchDB/docker-compose.yaml`                | 5984                                  | <http://localhost:5984>             |
+| Dify (AI platform)                  | `dify/docker/docker-compose.yaml`            | 80, 443                               | <http://localhost>                  |
+| Docker Compose Manager (DCM)        | `DockerComposeGenerator/docker-compose.yaml` | 7576                                  | <http://localhost:7576>             |
+| Homepage Dashboard                  | `home_page/docker-compose.yaml`              | 3030                                  | <http://localhost:3030>             |
+| Jenkins                             | `jenkins/docker-compose.yml`                 | 8080                                  | <http://localhost:8080>             |
+| Judge0 (code execution API)         | `judge0/docker-compose.yaml`                 | 2358                                  | <http://localhost:2358>             |
+| MeTube (YouTube downloader)         | `metube/docker-compose.yaml`                 | 8089                                  | <http://localhost:8089>             |
+| n8n                                 | `n8n/docker-compose.yaml`                    | 5678                                  | <http://localhost:5678>             |
+| Ollama (model server)               | `ollama/docker-compose.yaml`                 | 11434                                 | <http://localhost:11434>            |
+| Postgres + pgAdmin                  | `postgres_pgadmin/docker-compose.yaml`       | Postgres: 5432, pgAdmin: 8086         | <http://localhost:8086>             |
+| Qdrant (vector DB)                  | `qdrant_vecterDB/docker-compose.yaml`        | 6333                                  | <http://localhost:6333>             |
+| Traefik (reverse proxy / dashboard) | `traefik/docker-compose.yml`                 | Dashboard: 8080; HTTP: 80; HTTPS: 443 | <http://localhost:8080> (dashboard) |
+| Traefik proxy (alternate)           | `traefik_proxy/docker-compose.yaml`          | depends on config                     | see compose file                    |
+| Uptime Kuma (monitoring)            | `uptime/docker-compose.yaml`                 | 3030                                  | <http://localhost:3030>             |
 
 Notes:
 
