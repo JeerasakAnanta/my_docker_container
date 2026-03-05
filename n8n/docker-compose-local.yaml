@@ -1,0 +1,25 @@
+version: '3.8'
+
+volumes:
+  n8n_dev_data:
+
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    container_name: n8n-local-dev
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      # Local Dev Configuration
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - NODE_ENV=development
+      - WEBHOOK_URL=http://localhost:5678/
+      
+      # Timezone for accurate execution logs
+      - GENERIC_TIMEZONE=Asia/Bangkok
+      - TZ=Asia/Bangkok
+    volumes:
+      - n8n_dev_data:/home/node/.n8n
